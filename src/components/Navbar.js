@@ -1,3 +1,7 @@
+/*
+Nav bar contains title with menu
+- need to add login functionality
+*/
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
