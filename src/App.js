@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 
 import ButtonAppBar from './components/Navbar';
+import HomePage from './pages/homepage/homepage';
 
 class App extends Component {
   render() {
     return (
-      <header>
+      <div id="app">
         <ButtonAppBar/>
-      </header>
-      // <div className="App">
-        
-      // </div>
+        <HomePage/>
+      </div>
     );
   }
 }
