@@ -10,12 +10,15 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 import { UNITS, GENDER, EVENTS, LIFTS, CONSTANTS } from '../../constants/constants'
 
 const styles = (theme) => ({
   control: {
     padding: '1em',
+    marginRight: '2.5em',
+    marginLeft: '2.5em',
   },
   root: {
     display: 'flex',
@@ -68,59 +71,75 @@ class HomePage extends React.PureComponent {
     return (
       <div className={classes.root}>
         <Paper className={classes.control}>
-          <FormControl component="fieldset" className={classes.formControl}>
-            <FormLabel component="legend">Gender</FormLabel>
-            <RadioGroup
-              aria-label="Gender"
-              name="gender1"
-              className={classes.group}
-              value={this.state.gender}
-              onChange={this.handleChange('gender')}
-            >
-              {GENDER.map((option) => (
-                <FormControlLabel value={option.value} control={<Radio />} label={option.label} />
-              ))}
-            </RadioGroup>
-          </FormControl>
+          <Grid container spacing={8}>
 
-          <FormControl component="fieldset" className={classes.formControl}>
-            <FormLabel component="legend">Event</FormLabel>
-            <RadioGroup
-              aria-label="Event"
-              name="event1"
-              className={classes.group}
-              value={this.state.eventType}
-              onChange={this.handleChange('eventType')}
-            >
-              {EVENTS.map((option) => (
-                <FormControlLabel value={option.value} control={<Radio />} label={option.label} />
-              ))}
-            </RadioGroup>
-          </FormControl>
+            <Grid item xs={6} sm={3}>
+              <FormControl component="fieldset" className={classes.formControl}>
+                <FormLabel component="legend">Gender</FormLabel>
+                <RadioGroup
+                  aria-label="Gender"
+                  name="gender1"
+                  className={classes.group}
+                  value={this.state.gender}
+                  onChange={this.handleChange('gender')}
+                >
+                  {GENDER.map((option, index) => (
+                    <FormControlLabel key={'mykey' + index} value={option.value} control={<Radio />} label={option.label} />
+                  ))}
+                </RadioGroup>
+              </FormControl>
+            </Grid>
 
-          <FormControl component="fieldset" className={classes.formControl}>
-            <FormLabel component="legend">Lift</FormLabel>
-            <RadioGroup
-              aria-label="Lift"
-              name="lift1"
-              className={classes.group}
-              value={this.state.liftType}
-              onChange={this.handleChange('liftType')}
-            >
-              {LIFTS.map((option) => (
-                <FormControlLabel value={option.value} control={<Radio />} label={option.label} />
-              ))}
-            </RadioGroup>
-          </FormControl>
+            <Grid item xs={6} sm={3}>
+              <FormControl component="fieldset" className={classes.formControl}>
+                <FormLabel component="legend">Event</FormLabel>
+                <RadioGroup
+                  aria-label="Event"
+                  name="event1"
+                  className={classes.group}
+                  value={this.state.eventType}
+                  onChange={this.handleChange('eventType')}
+                >
+                  {EVENTS.map((option, index) => (
+                    <FormControlLabel key={'mykey' + index} value={option.value} control={<Radio />} label={option.label} />
+                  ))}
+                </RadioGroup>
+              </FormControl>
+            </Grid>
 
-          <FormControl component="fieldset">
-            <FormLabel component="legend">Units</FormLabel>
-            <RadioGroup aria-label="Units" name="unit1" value={this.state.units} onChange={this.handleChange('units')} row>
-              {UNITS.map((option) => (
-                <FormControlLabel value={option.value} control={<Radio />} label={option.label} labelPlacement="top"/>
-              ))}
-            </RadioGroup>
-          </FormControl>
+            <Grid item xs={6} sm={3}>
+              <FormControl component="fieldset" className={classes.formControl}>
+                <FormLabel component="legend">Lift</FormLabel>
+                <RadioGroup
+                  aria-label="Lift"
+                  name="lift1"
+                  className={classes.group}
+                  value={this.state.liftType}
+                  onChange={this.handleChange('liftType')}
+                >
+                  {LIFTS.map((option, index) => (
+                    <FormControlLabel key={'mykey' + index}  value={option.value} control={<Radio />} label={option.label} />
+                  ))}
+                </RadioGroup>
+              </FormControl>
+            </Grid>
+
+            <Grid item xs={6} sm={3}>
+              <FormControl component="fieldset">
+                <FormLabel component="legend">Units</FormLabel>
+                <RadioGroup
+                aria-label="Units"
+                name="unit1"
+                value={this.state.units}
+                onChange={this.handleChange('units')}>
+                  {UNITS.map((option, index) => (
+                    <FormControlLabel key={'mykey' + index} value={option.value} control={<Radio />} label={option.label}/>
+                  ))}
+                </RadioGroup>
+              </FormControl>
+            </Grid>
+
+          </Grid>
         </Paper>    
       </div>
     )
