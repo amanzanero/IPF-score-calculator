@@ -22,7 +22,6 @@ import Paper from '@material-ui/core/Paper';
 const styles = {
   root: {
     flexGrow: 1,
-    background: 'red',
   },
   grow: {
     flexGrow: 1,
@@ -31,8 +30,6 @@ const styles = {
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
-    color: 'white',
-
   },
 };
 
@@ -92,10 +89,10 @@ class ButtonAppBar extends React.Component {
                     </Grow>
                     )}
                 </Popper>
-                <Typography variant="h5" color="inherit" className={classes.grow}>
+                <Typography variant="h5" className={classes.grow}>
                     Load the Barbell
                 </Typography>
-                <Button color="inherit">Login</Button>
+                <Button>Login</Button>
                 </Toolbar>
             </AppBar>
         );
