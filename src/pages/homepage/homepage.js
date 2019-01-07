@@ -57,10 +57,11 @@ const CONSTANTS = {
 const styles = (theme) => ({
   root: {
     display: 'flex',
+    margin: '0 auto',
+    paddingTop: '1em'
   },
   formControl: {
-    marginTop: '10%',
-    margin: '0 auto',
+
   },
   group: {
     margin: 'auto',

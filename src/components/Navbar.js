@@ -20,17 +20,18 @@ import Paper from '@material-ui/core/Paper';
 
 
 const styles = {
-  root: {
-    flexGrow: 1,
-  },
-  grow: {
-    flexGrow: 1,
-    align: 'center',
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
+    root: {
+        display: 'flex',
+        position: 'relative',
+    },
+    grow: {
+        flexGrow: 1,
+        align: 'center',
+    },
+    menuButton: {
+        marginLeft: -12,
+        marginRight: 20,
+    },
 };
 
 class ButtonAppBar extends React.Component {
@@ -63,11 +64,11 @@ class ButtonAppBar extends React.Component {
                 aria-label="Menu"
                 buttonRef={node => {
                     this.anchorEl = node;
-                  }}
-                  aria-owns={open ? 'menu-list-grow' : undefined}
-                  aria-haspopup="true"
-                  onClick={this.handleToggle}
-                  >
+                }}
+                aria-owns={open ? 'menu-list-grow' : undefined}
+                aria-haspopup="true"
+                onClick={this.handleToggle}
+                >
                     <MenuIcon />
                 </IconButton>
                 <Popper open={open} anchorEl={this.anchorEl} transition disablePortal>
