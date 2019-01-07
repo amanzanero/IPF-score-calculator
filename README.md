@@ -1,5 +1,6 @@
 # Load the barbell!
 #### _Status_: In Progress
+#### _Last Updated_: January 7th, 2018
 [Visit me!](https://load-the-barbell.herokuapp.com/)
 
 ## Description
