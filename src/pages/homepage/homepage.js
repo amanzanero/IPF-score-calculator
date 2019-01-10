@@ -40,7 +40,7 @@ class HomePage extends React.PureComponent {
   
   state = { 
     gender: 'men',
-    constantSet: CONSTANTS.men.classicThreeLift,
+    constantSet: CONSTANTS.men.raw.threeLift,
     eventType: 'raw',
     liftType: 'threeLift',
     bodyWeight: 64,
@@ -84,7 +84,12 @@ class HomePage extends React.PureComponent {
                   onChange={this.handleChange('gender')}
                 >
                   {GENDER.map((option, index) => (
-                    <FormControlLabel key={'mykey' + index} value={option.value} control={<Radio />} label={option.label} />
+                    <FormControlLabel
+                    key={'mykey' + index}
+                    value={option.value} 
+                    control={<Radio />}
+                    label={option.label}
+                    />
                   ))}
                 </RadioGroup>
               </FormControl>
@@ -101,7 +106,12 @@ class HomePage extends React.PureComponent {
                   onChange={this.handleChange('eventType')}
                 >
                   {EVENTS.map((option, index) => (
-                    <FormControlLabel key={'mykey' + index} value={option.value} control={<Radio />} label={option.label} />
+                    <FormControlLabel
+                    key={'mykey' + index}
+                    value={option.value}
+                    control={<Radio />}
+                    label={option.label}
+                    />
                   ))}
                 </RadioGroup>
               </FormControl>
@@ -118,7 +128,12 @@ class HomePage extends React.PureComponent {
                   onChange={this.handleChange('liftType')}
                 >
                   {LIFTS.map((option, index) => (
-                    <FormControlLabel key={'mykey' + index}  value={option.value} control={<Radio />} label={option.label} />
+                    <FormControlLabel
+                    key={'mykey' + index} 
+                    value={option.value}
+                    control={<Radio />}
+                    label={option.label}
+                    />
                   ))}
                 </RadioGroup>
               </FormControl>
@@ -133,7 +148,12 @@ class HomePage extends React.PureComponent {
                 value={this.state.units}
                 onChange={this.handleChange('units')}>
                   {UNITS.map((option, index) => (
-                    <FormControlLabel key={'mykey' + index} value={option.value} control={<Radio />} label={option.label}/>
+                    <FormControlLabel
+                    key={'mykey' + index}
+                    value={option.value}
+                    control={<Radio />}
+                    label={option.label}
+                    />
                   ))}
                 </RadioGroup>
               </FormControl>
