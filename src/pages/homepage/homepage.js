@@ -2,17 +2,12 @@
 Home page 
 */
 import React from 'react';
+import PropTypes from 'prop-types';
 import math from 'mathjs';
 import { withStyles } from '@material-ui/styles';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 
-import { UNITS, GENDER, EVENTS, LIFTS, CONSTANTS } from '../../constants/constants'
+import RadioButtonField from './radiobuttonfield';
+import { CONSTANTS } from '../../constants/constants';
 
 const styles = (theme) => ({
   control: {
@@ -33,11 +28,11 @@ const styles = (theme) => ({
   },
 });
 
-class HomePage extends React.PureComponent {
+class HomePage extends React.Component {
   /*
   constants will be dictated by the radio button component
   */
-  
+
   state = { 
     gender: 'men',
     constantSet: CONSTANTS.men.raw.threeLift,
@@ -49,10 +44,23 @@ class HomePage extends React.PureComponent {
     ipfScore: 0
   }
 
-  handleChange = (prop) => (event) => {
-    this.setState({ [prop]: event.target.value });
-    this.setState({ 'constantSet': CONSTANTS[this.state.gender][this.state.eventType][this.state.liftType] })
-    console.log(this.state);
+  componentDidMount(){
+    console.log(this.state)
+  }
+
+  handleChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value,
+    });
+    this.setState({
+      constantSet: CONSTANTS[this.state.gender][this.state.eventType][this.state.liftType],
+    });
+    console.log(name, value);
+    console.log(this.state.constantSet)
+    // console.log(this.state)
   };
 
   calculateScore = (total, bodyWeight, constants) => {
@@ -70,100 +78,20 @@ class HomePage extends React.PureComponent {
 
     return (
       <div className={classes.root}>
-        <Paper className={classes.control}>
-          <Grid container spacing={8}>
-
-            <Grid item xs={6} sm={3}>
-              <FormControl component="fieldset" className={classes.formControl}>
-                <FormLabel component="legend">Gender</FormLabel>
-                <RadioGroup
-                  aria-label="Gender"
-                  name="gender1"
-                  className={classes.group}
-                  value={this.state.gender}
-                  onChange={this.handleChange('gender')}
-                >
-                  {GENDER.map((option, index) => (
-                    <FormControlLabel
-                    key={'mykey' + index}
-                    value={option.value} 
-                    control={<Radio />}
-                    label={option.label}
-                    />
-                  ))}
-                </RadioGroup>
-              </FormControl>
-            </Grid>
-
-            <Grid item xs={6} sm={3}>
-              <FormControl component="fieldset" className={classes.formControl}>
-                <FormLabel component="legend">Event</FormLabel>
-                <RadioGroup
-                  aria-label="Event"
-                  name="event1"
-                  className={classes.group}
-                  value={this.state.eventType}
-                  onChange={this.handleChange('eventType')}
-                >
-                  {EVENTS.map((option, index) => (
-                    <FormControlLabel
-                    key={'mykey' + index}
-                    value={option.value}
-                    control={<Radio />}
-                    label={option.label}
-                    />
-                  ))}
-                </RadioGroup>
-              </FormControl>
-            </Grid>
-
-            <Grid item xs={6} sm={3}>
-              <FormControl component="fieldset" className={classes.formControl}>
-                <FormLabel component="legend">Lift</FormLabel>
-                <RadioGroup
-                  aria-label="Lift"
-                  name="lift1"
-                  className={classes.group}
-                  value={this.state.liftType}
-                  onChange={this.handleChange('liftType')}
-                >
-                  {LIFTS.map((option, index) => (
-                    <FormControlLabel
-                    key={'mykey' + index} 
-                    value={option.value}
-                    control={<Radio />}
-                    label={option.label}
-                    />
-                  ))}
-                </RadioGroup>
-              </FormControl>
-            </Grid>
-
-            <Grid item xs={6} sm={3}>
-              <FormControl component="fieldset">
-                <FormLabel component="legend">Units</FormLabel>
-                <RadioGroup
-                aria-label="Units"
-                name="unit1"
-                value={this.state.units}
-                onChange={this.handleChange('units')}>
-                  {UNITS.map((option, index) => (
-                    <FormControlLabel
-                    key={'mykey' + index}
-                    value={option.value}
-                    control={<Radio />}
-                    label={option.label}
-                    />
-                  ))}
-                </RadioGroup>
-              </FormControl>
-            </Grid>
-
-          </Grid>
-        </Paper>    
+        <RadioButtonField
+        handleChange={this.handleChange}
+        gender={this.state.gender}
+        event={this.state.eventType}
+        lift={this.state.liftType}
+        units={this.state.units} />
       </div>
     )
   }
 }
+
+HomePage.propTypes = {
+  handleChange: PropTypes.func,
+  calculateScore: PropTypes.func,
+};
 
 export default withStyles(styles)(HomePage);
