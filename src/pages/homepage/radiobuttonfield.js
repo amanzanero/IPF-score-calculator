@@ -18,12 +18,14 @@ const styles = (theme) => ({
     padding: '1em',
     marginRight: '2.5em',
     marginLeft: '2.5em',
+    width: '100%'
   },
   root: {
     position: 'relative',
     display: 'flex',
     margin: '0 auto',
-    paddingTop: '1em'
+    paddingTop: '1em',
+    width: '100vw'
   },
   formControl: {
 

@@ -7,6 +7,7 @@ import math from 'mathjs';
 import { withStyles } from '@material-ui/styles';
 
 import RadioButtonField from './radiobuttonfield';
+import WeightEntry from './weightentry';
 import { CONSTANTS } from '../../constants/constants';
 
 const styles = (theme) => ({
@@ -18,7 +19,7 @@ const styles = (theme) => ({
   root: {
     display: 'flex',
     margin: '0 auto',
-    paddingTop: '1em'
+    flexWrap: 'wrap'
   },
   formControl: {
 
@@ -60,7 +61,6 @@ class HomePage extends React.Component {
     });
     console.log(name, value);
     console.log(this.state.constantSet)
-    // console.log(this.state)
   };
 
   calculateScore = (total, bodyWeight, constants) => {
@@ -78,6 +78,7 @@ class HomePage extends React.Component {
 
     return (
       <div className={classes.root}>
+        <WeightEntry />
         <RadioButtonField
         handleChange={this.handleChange}
         gender={this.state.gender}
