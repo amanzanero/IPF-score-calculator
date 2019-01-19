@@ -67,6 +67,7 @@ class ButtonAppBar extends React.Component {
                 }}
                 aria-owns={open ? 'menu-list-grow' : undefined}
                 aria-haspopup="true"
+                color="secondary"
                 onClick={this.handleToggle}
                 >
                     <MenuIcon />
@@ -90,10 +91,13 @@ class ButtonAppBar extends React.Component {
                     </Grow>
                     )}
                 </Popper>
-                <Typography variant="h5" className={classes.grow}>
+                <Typography
+                variant="h5"
+                className={classes.grow}
+                color="secondary" >
                     Load the Barbell
                 </Typography>
-                <Button>Login</Button>
+                <Button color="secondary">Login</Button>
                 </Toolbar>
             </AppBar>
         );
