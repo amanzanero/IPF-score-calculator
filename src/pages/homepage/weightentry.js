@@ -1,5 +1,8 @@
 /*
 Weight entry component
+
+*** To do
+    add break points to the fields
 */
 import React from 'react';
 import { withStyles } from '@material-ui/styles';
@@ -11,17 +14,14 @@ const styles = (theme) => ({
     position: 'relative',
     display: 'flex',
     margin: '0 auto',
-    paddingTop: '1em',
-    width: '100%',
-    flexWrap: 'wrap'
+    paddingTop: '0.5em',
+    flexWrap: 'wrap',
+    marginRight: '1.5em',
+    marginLeft: '1.5em',
   },
   inputField: {
     display: 'flex',
-    width: '100vw'
-  },
-  textField: {
-    marginRight: '2.5em',
-    marginLeft: '2.5em',
+    width: '100%'
   },
 });
 
@@ -41,7 +41,10 @@ function WeightEntry (props) {
                 <TextField
                 id="outlined-dense"
                 label="Body Weight"
-                className={classes.textField}
+                name="bodyWeight"
+                value={props.bodyWeight}
+                onChange={handleChange}
+                type="number"
                 fullWidth
                 margin="dense"
                 variant="outlined" />
@@ -50,32 +53,16 @@ function WeightEntry (props) {
             <div className={classes.inputField}>
                 <TextField
                 id="outlined-dense"
-                label="Squat"
-                className={classes.textField}
+                label="Total"
+                name="total"
+                value={props.total}
+                onChange={handleChange}
+                type="number"
                 fullWidth
                 margin="dense"
                 variant="outlined" />
             </div>
 
-            <div className={classes.inputField}>
-                <TextField
-                id="outlined-dense"
-                label="Bench"
-                className={classes.textField}
-                fullWidth
-                margin="dense"
-                variant="outlined" />
-            </div>
-
-            <div className={classes.inputField}>
-                <TextField
-                id="outlined-dense"
-                label="Deadlift"
-                className={classes.textField}
-                fullWidth
-                margin="dense"
-                variant="outlined" />
-            </div>
         </div>
     );
 }

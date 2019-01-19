@@ -16,16 +16,16 @@ import { UNITS, GENDER, EVENTS, LIFTS } from '../../constants/constants'
 const styles = (theme) => ({
   control: {
     padding: '1em',
-    marginRight: '2.5em',
-    marginLeft: '2.5em',
+    marginRight: '1.5em',
+    marginLeft: '1.5em',
     width: '100%'
   },
   root: {
     position: 'relative',
     display: 'flex',
     margin: '0 auto',
-    paddingTop: '1em',
-    width: '100vw'
+    paddingTop: '0.5em',
+    width: '100%'
   },
   formControl: {
 
@@ -49,7 +49,7 @@ function RadioButtonField (props) {
         <Paper className={classes.control}>
         <Grid container spacing={8}>
 
-            <Grid item xs={6} sm={3}>
+            <Grid item xs={6}>
             <FormControl component="fieldset" className={classes.formControl}>
                 <FormLabel component="legend">Gender</FormLabel>
                 <RadioGroup
@@ -71,7 +71,7 @@ function RadioButtonField (props) {
             </FormControl>
             </Grid>
 
-            <Grid item xs={6} sm={3}>
+            <Grid item xs={6}>
             <FormControl component="fieldset" className={classes.formControl}>
                 <FormLabel component="legend">Event</FormLabel>
                 <RadioGroup
@@ -93,7 +93,7 @@ function RadioButtonField (props) {
             </FormControl>
             </Grid>
 
-            <Grid item xs={6} sm={3}>
+            <Grid item xs={6}>
             <FormControl component="fieldset" className={classes.formControl}>
                 <FormLabel component="legend">Lift</FormLabel>
                 <RadioGroup
@@ -115,7 +115,7 @@ function RadioButtonField (props) {
             </FormControl>
             </Grid>
 
-            <Grid item xs={6} sm={3}>
+            <Grid item xs={6}>
             <FormControl component="fieldset">
                 <FormLabel component="legend">Units</FormLabel>
                 <RadioGroup
