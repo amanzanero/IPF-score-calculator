@@ -95,7 +95,7 @@ class ButtonAppBar extends React.Component {
                 variant="h5"
                 className={classes.grow}
                 color="secondary" >
-                    Load the Barbell
+                    IPF Score Calculator
                 </Typography>
                 <Button color="secondary">Login</Button>
                 </Toolbar>
