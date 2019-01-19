@@ -70,18 +70,19 @@ class HomePage extends React.Component {
   };
 
   calculateScore = () => {
-    if (this.state.weight === '' || this.state.total === ''){
-      this.setState({
-        ipfScore: '0.0'
-      });
-      return;
-    };
+
+    if (this.state.weight === '' || this.state.total === '') return;
+
     var weight = Number(this.state.bodyWeight);
+    var total = Number(this.state.total);
+
+    if (isNaN(weight) || isNaN(total)) return;
+
     if (this.state.units === 'pounds') {
       weight = this.state.bodyWeight * 0.453592;
+      total = this.state.total * 0.453592;
     };
     var constants = CONSTANTS[this.state.gender][this.state.eventType][this.state.liftType];
-    var total = Number(this.state.total);
     var score = 500 + 100 *( total - ( constants[0] * Math.log(weight) - constants[1] ))
     / ( constants[2] * Math.log(weight) - constants[3] );
     console.log(score)
@@ -111,7 +112,7 @@ class HomePage extends React.Component {
             {"Score:"}
           </Typography>
 
-          <Typography align="center" variant="h3" color= "Primary">
+          <Typography align="center" variant="h3" color= "primary">
             {this.state.ipfScore}
           </Typography>
         </Paper>

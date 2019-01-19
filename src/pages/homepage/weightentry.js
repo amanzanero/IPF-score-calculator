@@ -44,7 +44,6 @@ function WeightEntry (props) {
                 name="bodyWeight"
                 value={props.bodyWeight}
                 onChange={handleChange}
-                type="number"
                 fullWidth
                 margin="dense"
                 variant="outlined" />
@@ -57,7 +56,6 @@ function WeightEntry (props) {
                 name="total"
                 value={props.total}
                 onChange={handleChange}
-                type="number"
                 fullWidth
                 margin="dense"
                 variant="outlined" />
