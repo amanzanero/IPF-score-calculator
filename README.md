@@ -1,7 +1,6 @@
-# Load the barbell!
-#### _Status_: In Progress
-#### _Last Updated_: January 7th, 2018
-[Visit me!](https://load-the-barbell.herokuapp.com/)
+# IPF-Score-Calculator
+
+#### _Last Updated_: January 19th, 2018
 
 ## Description
 This is a web application that serves as a calculator for 
