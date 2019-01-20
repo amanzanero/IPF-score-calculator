@@ -9,14 +9,15 @@ import RadioButtonField from './radiobuttonfield';
 import WeightEntry from './weightentry';
 import { CONSTANTS } from '../../constants/constants';
 import { Paper, Typography } from '@material-ui/core';
+import classNames from 'classnames';
+import { loadCSS } from 'fg-loadcss/src/loadCSS';
+import Icon from '@material-ui/core/Icon';
+
 
 const styles = (theme) => ({
   control: {
     padding: '1em',
-    marginRight: '1.5em',
-    marginLeft: '1.5em',
     minHeight: '5em',
-    width: '100%'
   },
   root: {
     paddingTop: '1em',
@@ -30,9 +31,16 @@ const styles = (theme) => ({
   },
   button: {
     marginTop: '.75em',
+  },
+  logo: {
+    marginTop: '4em'
+  },
+  width: {
+    width: '100%',
+  },
+  sideMargin: {
     marginLeft: '1.5em',
     marginRight: '1.5em',
-    width: '100%'
   }
 });
 
@@ -54,8 +62,12 @@ class HomePage extends React.Component {
   };
 
   componentDidMount(){
-    console.log(this.state)
+    loadCSS(
+      'https://use.fontawesome.com/releases/v5.1.0/css/all.css',
+      document.querySelector('#insertion-point-jss'),
+    );
   }
+
 
   handleChange = (event) => {
     const target = event.target;
@@ -91,6 +103,9 @@ class HomePage extends React.Component {
     if (score > 99999999){
       stringScore = "Stop lying ;)";
     }
+    else if (isNaN(score) || score < 0){
+      return;
+    }
     else {
       stringScore = score.toString();
     }
@@ -107,11 +122,11 @@ class HomePage extends React.Component {
     return (
       <div className={classes.root}>
 
-        <Paper className={classes.control}>
+        <Paper
+        className={classNames(classes.control, classes.sideMargin, classes.width)}>
           <Typography align="center" variant="h6" color= "secondary">
             {"Score:"}
           </Typography>
-
           <Typography align="center" variant="h3" color= "primary">
             {this.state.ipfScore}
           </Typography>
@@ -130,12 +145,27 @@ class HomePage extends React.Component {
         units={this.state.units} />
 
         <Button variant="contained"
-        size="large" color="primary"
-        className={classes.button}
+        size="large"
+        color="primary"
+        className={classNames(classes.button, classes.sideMargin, classes.width)}
         onClick={this.calculateScore} >
           Calculate
         </Button>
 
+        <Button variant="outlined"
+        size="large"
+        color="secondary"
+        className={classNames(classes.logo, classes.sideMargin)}
+        fullWidth
+        onClick={() => {window.open('https://github.com/amanzanero/IPF-score-calculator')}} >
+          <Icon className={classNames(classes.icon, 'fab fa-github')} color="primary" />
+        </Button>
+
+        <Typography
+        align="center"
+        className={classNames(classes.width, classes.sideMargin)}>
+          Not afiliated with the IPF.
+        </Typography>
       </div>
     )
   }
