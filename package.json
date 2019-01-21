@@ -1,6 +1,9 @@
 {
   "name": "ipf-score-calculator",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.14.1"
+  },
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.7.0",
