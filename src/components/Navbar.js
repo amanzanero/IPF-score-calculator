@@ -94,6 +94,7 @@ class ButtonAppBar extends React.Component {
                 <Typography
                 variant="h5"
                 className={classes.grow}
+                align="center"
                 color="secondary" >
                     IPF Score Calculator
                 </Typography>
