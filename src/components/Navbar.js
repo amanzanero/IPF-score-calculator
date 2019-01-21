@@ -8,15 +8,15 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Grow from '@material-ui/core/Grow';
-import Popper from '@material-ui/core/Popper';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import MenuList from '@material-ui/core/MenuList';
-import Paper from '@material-ui/core/Paper';
+// import Button from '@material-ui/core/Button';
+// import IconButton from '@material-ui/core/IconButton';
+// import MenuIcon from '@material-ui/icons/Menu';
+// import MenuItem from '@material-ui/core/MenuItem';
+// import Grow from '@material-ui/core/Grow';
+// import Popper from '@material-ui/core/Popper';
+// import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+// import MenuList from '@material-ui/core/MenuList';
+// import Paper from '@material-ui/core/Paper';
 
 
 const styles = {
@@ -55,11 +55,11 @@ class ButtonAppBar extends React.Component {
     
     render() {
         const { classes } = this.props;
-        const { open } = this.state;
+        // const { open } = this.state;
         return (
             <AppBar className={classes.root}>
                 <Toolbar>
-                <IconButton 
+                {/* <IconButton 
                 className={classes.menuButton} 
                 aria-label="Menu"
                 buttonRef={node => {
@@ -90,14 +90,14 @@ class ButtonAppBar extends React.Component {
                         </Paper>
                     </Grow>
                     )}
-                </Popper>
+                </Popper> */}
                 <Typography
                 variant="h5"
                 className={classes.grow}
                 color="secondary" >
                     IPF Score Calculator
                 </Typography>
-                <Button color="secondary">Login</Button>
+                {/* <Button color="secondary">Login</Button> */}
                 </Toolbar>
             </AppBar>
         );
