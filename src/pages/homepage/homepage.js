@@ -41,6 +41,9 @@ const styles = (theme) => ({
   sideMargin: {
     marginLeft: '1.5em',
     marginRight: '1.5em',
+  },
+  bottomMargin: {
+    marginBottom: '3em'
   }
 });
 
@@ -163,7 +166,7 @@ class HomePage extends React.Component {
 
         <Typography
         align="center"
-        className={classNames(classes.width, classes.sideMargin)}>
+        className={classNames(classes.width, classes.sideMargin, classes.bottomMargin)}>
           Not afiliated with the IPF.
         </Typography>
       </div>
