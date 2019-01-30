@@ -42,6 +42,8 @@ function WeightEntry (props) {
                 id="outlined-dense"
                 label="Body Weight"
                 name="bodyWeight"
+                type="tel"
+                pattern="[0-9]*"
                 value={props.bodyWeight}
                 onChange={handleChange}
                 fullWidth
@@ -54,6 +56,8 @@ function WeightEntry (props) {
                 id="outlined-dense"
                 label="Total"
                 name="total"
+                type="tel"
+                pattern="[0-9]*"
                 value={props.total}
                 onChange={handleChange}
                 fullWidth
