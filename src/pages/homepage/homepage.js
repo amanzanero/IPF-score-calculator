@@ -24,7 +24,8 @@ const styles = (theme) => ({
     display: 'flex',
     margin: '0 auto',
     flexWrap: 'wrap',
-    maxWidth: '400px'
+    maxWidth: '400px',
+    marginBottom: '1em'
   },
   group: {
     margin: 'auto',
@@ -33,7 +34,11 @@ const styles = (theme) => ({
     marginTop: '.75em',
   },
   logo: {
-    marginTop: '4em'
+    marginTop: '2.5em',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginBottom: '.5em',
+    width: '75px'
   },
   width: {
     width: '100%',
@@ -155,8 +160,7 @@ class HomePage extends React.Component {
         <Button variant="outlined"
         size="large"
         color="secondary"
-        className={classNames(classes.logo, classes.sideMargin)}
-        fullWidth
+        className={classes.logo}
         onClick={() => {window.open('https://github.com/amanzanero/IPF-score-calculator')}} >
           <Icon className={classNames(classes.icon, 'fab fa-github')} color="primary" />
         </Button>
