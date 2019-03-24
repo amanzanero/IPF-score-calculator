@@ -10,8 +10,8 @@ import WeightEntry from './weightentry';
 import { CONSTANTS } from '../../constants/constants';
 import { Paper, Typography } from '@material-ui/core';
 import classNames from 'classnames';
-import { loadCSS } from 'fg-loadcss/src/loadCSS';
-import Icon from '@material-ui/core/Icon';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 
 const styles = (theme) => ({
@@ -46,6 +46,9 @@ const styles = (theme) => ({
   sideMargin: {
     marginLeft: '1.5em',
     marginRight: '1.5em',
+  },
+  ico: {
+    transform: 'scale(2)',
   }
 });
 
@@ -65,14 +68,6 @@ class HomePage extends React.Component {
       ipfScore: '0.0'
     }
   };
-
-  componentDidMount(){
-    loadCSS(
-      'https://use.fontawesome.com/releases/v5.1.0/css/all.css',
-      document.querySelector('#insertion-point-jss'),
-    );
-  }
-
 
   handleChange = (event) => {
     const target = event.target;
@@ -162,11 +157,15 @@ class HomePage extends React.Component {
         color="secondary"
         className={classes.logo}
         onClick={() => {window.open('https://github.com/amanzanero/IPF-score-calculator')}} >
-          <Icon className={classNames(classes.icon, 'fab fa-github')} color="primary" />
+          <FontAwesomeIcon
+          icon={faGithub}
+          className={classes.ico}
+          />
         </Button>
 
         <Typography
         align="center"
+        id="#github-logo"
         className={classNames(classes.width, classes.sideMargin)}>
           Not afiliated with the IPF.
         </Typography>
