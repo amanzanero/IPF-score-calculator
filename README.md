@@ -1,4 +1,4 @@
-# IPF-Score-Calculator
+# IPF-Score-Calculator [![Build Status](https://travis-ci.org/amanzanero/ipf-score-calculator.svg?branch=master)](https://travis-ci.org/amanzanero/ipf-score-calculator)
 
 #### _Last Updated_: January 19th, 2018
 
