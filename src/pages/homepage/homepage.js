@@ -218,6 +218,7 @@ class HomePage extends React.Component {
 
         <Typography
         align="center"
+        id="#github-logo"
         className={classNames(classes.width, classes.sideMargin)}>
           Not afiliated with the IPF.
         </Typography>
