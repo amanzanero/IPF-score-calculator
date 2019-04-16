@@ -111,6 +111,8 @@ class HomePage extends React.Component {
 
     /**
      * Wilks calculation
+     * - get constants for coefficient
+     * - multiply coefficient by total
      */
     var C = WILKS_CONSTANTS[this.state.gender];
     var a = C['a'];
@@ -161,7 +163,7 @@ class HomePage extends React.Component {
 
         <Paper
         className={classNames(classes.control, classes.sideMargin, classes.width)}>
-         <Grid container spacing="24">
+         <Grid container spacing={24}>
           <Grid item xs={6}>
             <Typography align="center" variant="h6" color="secondary">
               {"IPF:"}
